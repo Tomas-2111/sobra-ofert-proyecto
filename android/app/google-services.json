@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "482015776791",
+    "project_id": "sobra-ofert-proyecto",
+    "storage_bucket": "sobra-ofert-proyecto.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:482015776791:android:6b2580b785cda1d5a30c52",
+        "android_client_info": {
+          "package_name": "com.mycompany.proyectotomasalfaro"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAQR4oUsOMi-DWgcyCHqvbKIB1qR9hzqNs"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
