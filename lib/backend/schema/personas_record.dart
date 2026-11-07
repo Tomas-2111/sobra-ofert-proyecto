@@ -35,11 +35,17 @@ class PersonasRecord extends FirestoreRecord {
   String get fechaNacimiento => _fechaNacimiento ?? '';
   bool hasFechaNacimiento() => _fechaNacimiento != null;
 
+  // "uid" field.
+  String? _uid;
+  String get uid => _uid ?? '';
+  bool hasUid() => _uid != null;
+
   void _initializeFields() {
     _nombre = snapshotData['nombre'] as String?;
     _id = snapshotData['id'] as String?;
     _telefono = snapshotData['telefono'] as String?;
     _fechaNacimiento = snapshotData['fechaNacimiento'] as String?;
+    _uid = snapshotData['uid'] as String?;
   }
 
   static CollectionReference get collection =>
@@ -80,6 +86,7 @@ Map<String, dynamic> createPersonasRecordData({
   String? id,
   String? telefono,
   String? fechaNacimiento,
+  String? uid,
 }) {
   final firestoreData = mapToFirestore(
     <String, dynamic>{
@@ -87,6 +94,7 @@ Map<String, dynamic> createPersonasRecordData({
       'id': id,
       'telefono': telefono,
       'fechaNacimiento': fechaNacimiento,
+      'uid': uid,
     }.withoutNulls,
   );
 
@@ -101,12 +109,13 @@ class PersonasRecordDocumentEquality implements Equality<PersonasRecord> {
     return e1?.nombre == e2?.nombre &&
         e1?.id == e2?.id &&
         e1?.telefono == e2?.telefono &&
-        e1?.fechaNacimiento == e2?.fechaNacimiento;
+        e1?.fechaNacimiento == e2?.fechaNacimiento &&
+        e1?.uid == e2?.uid;
   }
 
   @override
   int hash(PersonasRecord? e) => const ListEquality()
-      .hash([e?.nombre, e?.id, e?.telefono, e?.fechaNacimiento]);
+      .hash([e?.nombre, e?.id, e?.telefono, e?.fechaNacimiento, e?.uid]);
 
   @override
   bool isValidKey(Object? o) => o is PersonasRecord;

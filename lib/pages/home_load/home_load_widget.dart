@@ -32,6 +32,11 @@ class _HomeLoadWidgetState extends State<HomeLoadWidget> {
 
     // On page load action.
     SchedulerBinding.instance.addPostFrameCallback((_) async {
+      await Future.delayed(
+        Duration(
+          milliseconds: 3000,
+        ),
+      );
       if (valueOrDefault(currentUserDocument?.rol, '') == 'persona') {
         context.pushNamed(RegistroPersonaWidget.routeName);
       } else {
