@@ -98,6 +98,31 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
           name: HomeLoadWidget.routeName,
           path: HomeLoadWidget.routePath,
           builder: (context, params) => HomeLoadWidget(),
+        ),
+        FFRoute(
+          name: HomeComercioWidget.routeName,
+          path: HomeComercioWidget.routePath,
+          builder: (context, params) => HomeComercioWidget(),
+        ),
+        FFRoute(
+          name: HomePersonaWidget.routeName,
+          path: HomePersonaWidget.routePath,
+          builder: (context, params) => HomePersonaWidget(),
+        ),
+        FFRoute(
+          name: RegistroCWidget.routeName,
+          path: RegistroCWidget.routePath,
+          builder: (context, params) => RegistroCWidget(),
+        ),
+        FFRoute(
+          name: RegistroWidget.routeName,
+          path: RegistroWidget.routePath,
+          builder: (context, params) => RegistroWidget(
+            rol: params.getParam(
+              'rol',
+              ParamType.String,
+            ),
+          ),
         )
       ].map((r) => r.toRoute(appStateNotifier)).toList(),
     );

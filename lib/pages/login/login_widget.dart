@@ -550,7 +550,14 @@ class _LoginWidgetState extends State<LoginWidget> {
                                 child: FFButtonWidget(
                                   onPressed: () async {
                                     context.pushNamed(
-                                        RegistroPersonaWidget.routeName);
+                                      RegistroWidget.routeName,
+                                      queryParameters: {
+                                        'rol': serializeParam(
+                                          'persona',
+                                          ParamType.String,
+                                        ),
+                                      }.withoutNulls,
+                                    );
                                   },
                                   text: 'Registrarse como Consumidor',
                                   options: FFButtonOptions(
@@ -603,7 +610,14 @@ class _LoginWidgetState extends State<LoginWidget> {
                                 child: FFButtonWidget(
                                   onPressed: () async {
                                     context.pushNamed(
-                                        RegistroPersonaWidget.routeName);
+                                      RegistroWidget.routeName,
+                                      queryParameters: {
+                                        'rol': serializeParam(
+                                          'comercio',
+                                          ParamType.String,
+                                        ),
+                                      }.withoutNulls,
+                                    );
                                   },
                                   text: 'Registrarse como Comercio',
                                   options: FFButtonOptions(
