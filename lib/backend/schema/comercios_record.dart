@@ -60,6 +60,11 @@ class ComerciosRecord extends FirestoreRecord {
   String get fechaCreacion => _fechaCreacion ?? '';
   bool hasFechaCreacion() => _fechaCreacion != null;
 
+  // "uid" field.
+  String? _uid;
+  String get uid => _uid ?? '';
+  bool hasUid() => _uid != null;
+
   void _initializeFields() {
     _idComercio = snapshotData['idComercio'] as String?;
     _nombre = snapshotData['nombre'] as String?;
@@ -70,6 +75,7 @@ class ComerciosRecord extends FirestoreRecord {
     _distrito = snapshotData['distrito'] as String?;
     _direccion = snapshotData['direccion'] as String?;
     _fechaCreacion = snapshotData['fechaCreacion'] as String?;
+    _uid = snapshotData['uid'] as String?;
   }
 
   static CollectionReference get collection =>
@@ -115,6 +121,7 @@ Map<String, dynamic> createComerciosRecordData({
   String? distrito,
   String? direccion,
   String? fechaCreacion,
+  String? uid,
 }) {
   final firestoreData = mapToFirestore(
     <String, dynamic>{
@@ -127,6 +134,7 @@ Map<String, dynamic> createComerciosRecordData({
       'distrito': distrito,
       'direccion': direccion,
       'fechaCreacion': fechaCreacion,
+      'uid': uid,
     }.withoutNulls,
   );
 
@@ -146,7 +154,8 @@ class ComerciosRecordDocumentEquality implements Equality<ComerciosRecord> {
         e1?.canton == e2?.canton &&
         e1?.distrito == e2?.distrito &&
         e1?.direccion == e2?.direccion &&
-        e1?.fechaCreacion == e2?.fechaCreacion;
+        e1?.fechaCreacion == e2?.fechaCreacion &&
+        e1?.uid == e2?.uid;
   }
 
   @override
@@ -159,7 +168,8 @@ class ComerciosRecordDocumentEquality implements Equality<ComerciosRecord> {
         e?.canton,
         e?.distrito,
         e?.direccion,
-        e?.fechaCreacion
+        e?.fechaCreacion,
+        e?.uid
       ]);
 
   @override

@@ -190,31 +190,6 @@ class _RegistroWidgetState extends State<RegistroWidget> {
                                         .fontStyle,
                                   ),
                             ),
-                            Text(
-                              valueOrDefault<String>(
-                                widget.rol,
-                                'rol',
-                              ),
-                              style: FlutterFlowTheme.of(context)
-                                  .bodyMedium
-                                  .override(
-                                    font: GoogleFonts.inter(
-                                      fontWeight: FlutterFlowTheme.of(context)
-                                          .bodyMedium
-                                          .fontWeight,
-                                      fontStyle: FlutterFlowTheme.of(context)
-                                          .bodyMedium
-                                          .fontStyle,
-                                    ),
-                                    letterSpacing: 0.0,
-                                    fontWeight: FlutterFlowTheme.of(context)
-                                        .bodyMedium
-                                        .fontWeight,
-                                    fontStyle: FlutterFlowTheme.of(context)
-                                        .bodyMedium
-                                        .fontStyle,
-                                  ),
-                            ),
                           ],
                         ),
                       ),
@@ -753,13 +728,9 @@ class _RegistroWidgetState extends State<RegistroWidget> {
                                                 email: _model
                                                     .txtCorreoTextController
                                                     .text,
-                                                displayName: '',
                                                 createdTime:
                                                     getCurrentTimestamp,
-                                                uid: '',
-                                                phoneNumber: '',
                                                 rol: widget.rol,
-                                                photoUrl: '',
                                               ));
 
                                           context.goNamedAuth(

@@ -123,6 +123,37 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
               ParamType.String,
             ),
           ),
+        ),
+        FFRoute(
+          name: NuevoPaqueteWidget.routeName,
+          path: NuevoPaqueteWidget.routePath,
+          builder: (context, params) => NuevoPaqueteWidget(),
+        ),
+        FFRoute(
+          name: ConfirmarPaqueteWidget.routeName,
+          path: ConfirmarPaqueteWidget.routePath,
+          builder: (context, params) => ConfirmarPaqueteWidget(
+            titulo: params.getParam(
+              'titulo',
+              ParamType.String,
+            ),
+            descripcion: params.getParam(
+              'descripcion',
+              ParamType.String,
+            ),
+            precio: params.getParam(
+              'precio',
+              ParamType.double,
+            ),
+            cantidad: params.getParam(
+              'cantidad',
+              ParamType.int,
+            ),
+            disponibleHasta: params.getParam(
+              'disponibleHasta',
+              ParamType.String,
+            ),
+          ),
         )
       ].map((r) => r.toRoute(appStateNotifier)).toList(),
     );

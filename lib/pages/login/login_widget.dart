@@ -459,9 +459,23 @@ class _LoginWidgetState extends State<LoginWidget> {
                                       return;
                                     }
 
-                                    context.goNamedAuth(
-                                        HomeLoadWidget.routeName,
-                                        context.mounted);
+                                    if (currentUserDisplayName == '') {
+                                      context.pushNamedAuth(
+                                          HomeLoadWidget.routeName,
+                                          context.mounted);
+                                    } else {
+                                      if (valueOrDefault(
+                                              currentUserDocument?.rol, '') ==
+                                          'persona') {
+                                        context.pushNamedAuth(
+                                            HomePersonaWidget.routeName,
+                                            context.mounted);
+                                      } else {
+                                        context.pushNamedAuth(
+                                            HomeComercioWidget.routeName,
+                                            context.mounted);
+                                      }
+                                    }
                                   },
                                   text: 'Iniciar Sesión',
                                   options: FFButtonOptions(
