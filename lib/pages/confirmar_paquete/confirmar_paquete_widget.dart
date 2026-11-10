@@ -1025,7 +1025,7 @@ class _ConfirmarPaqueteWidgetState extends State<ConfirmarPaqueteWidget> {
                                             iconPadding:
                                                 EdgeInsetsDirectional.fromSTEB(
                                                     0.0, 0.0, 0.0, 0.0),
-                                            color: Color(0xFF35787A),
+                                            color: Color(0xFFA4680E),
                                             textStyle: FlutterFlowTheme.of(
                                                     context)
                                                 .titleSmall

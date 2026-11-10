@@ -8,6 +8,7 @@ import '/flutter_flow/flutter_flow_widgets.dart';
 import '/index.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:mask_text_input_formatter/mask_text_input_formatter.dart';
 import 'registro_c_model.dart';
 export 'registro_c_model.dart';
 
@@ -37,12 +38,14 @@ class _RegistroCWidgetState extends State<RegistroCWidget> {
     _model.txtNombreTextController ??= TextEditingController();
     _model.txtNombreFocusNode ??= FocusNode();
 
-    _model.txtCorreoTextController ??= TextEditingController();
+    _model.txtCorreoTextController ??=
+        TextEditingController(text: currentUserEmail);
     _model.txtCorreoFocusNode ??= FocusNode();
 
     _model.txtFechaCTextController ??= TextEditingController();
     _model.txtFechaCFocusNode ??= FocusNode();
 
+    _model.txtFechaCMask = MaskTextInputFormatter(mask: '##/##/####');
     _model.txtTipoCTextController ??= TextEditingController();
     _model.txtTipoCFocusNode ??= FocusNode();
 
@@ -605,7 +608,6 @@ class _RegistroCWidgetState extends State<RegistroCWidget> {
                                                   obscureText: false,
                                                   decoration: InputDecoration(
                                                     isDense: true,
-                                                    labelText: currentUserEmail,
                                                     labelStyle: FlutterFlowTheme
                                                             .of(context)
                                                         .labelMedium
@@ -937,6 +939,9 @@ class _RegistroCWidgetState extends State<RegistroCWidget> {
                                                   validator: _model
                                                       .txtFechaCTextControllerValidator
                                                       .asValidator(context),
+                                                  inputFormatters: [
+                                                    _model.txtFechaCMask
+                                                  ],
                                                 ),
                                               ),
                                             ),

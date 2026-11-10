@@ -38,7 +38,8 @@ class _RegistroPersonaWidgetState extends State<RegistroPersonaWidget> {
     _model.txtNombreTextController ??= TextEditingController();
     _model.txtNombreFocusNode ??= FocusNode();
 
-    _model.txtCorreoTextController ??= TextEditingController();
+    _model.txtCorreoTextController ??=
+        TextEditingController(text: currentUserEmail);
     _model.txtCorreoFocusNode ??= FocusNode();
 
     _model.txtTelefonoTextController ??= TextEditingController();
@@ -543,7 +544,6 @@ class _RegistroPersonaWidgetState extends State<RegistroPersonaWidget> {
                                             obscureText: false,
                                             decoration: InputDecoration(
                                               isDense: true,
-                                              labelText: currentUserEmail,
                                               labelStyle:
                                                   FlutterFlowTheme.of(context)
                                                       .labelMedium
