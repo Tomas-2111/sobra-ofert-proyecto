@@ -2,6 +2,7 @@ import '/flutter_flow/flutter_flow_util.dart';
 import '/index.dart';
 import 'registro_c_widget.dart' show RegistroCWidget;
 import 'package:flutter/material.dart';
+import 'package:mask_text_input_formatter/mask_text_input_formatter.dart';
 
 class RegistroCModel extends FlutterFlowModel<RegistroCWidget> {
   ///  State fields for stateful widgets in this page.
@@ -49,6 +50,7 @@ class RegistroCModel extends FlutterFlowModel<RegistroCWidget> {
   // State field(s) for txtFechaC widget.
   FocusNode? txtFechaCFocusNode;
   TextEditingController? txtFechaCTextController;
+  late MaskTextInputFormatter txtFechaCMask;
   String? Function(BuildContext, String?)? txtFechaCTextControllerValidator;
   String? _txtFechaCTextControllerValidator(BuildContext context, String? val) {
     if (val == null || val.isEmpty) {

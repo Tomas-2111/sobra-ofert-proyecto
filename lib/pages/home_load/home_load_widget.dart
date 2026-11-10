@@ -38,9 +38,17 @@ class _HomeLoadWidgetState extends State<HomeLoadWidget> {
         ),
       );
       if (valueOrDefault(currentUserDocument?.rol, '') == 'persona') {
-        context.pushNamed(RegistroPersonaWidget.routeName);
+        if (currentUserDisplayName != '') {
+          context.pushNamed(HomePersonaWidget.routeName);
+        } else {
+          context.pushNamed(RegistroPersonaWidget.routeName);
+        }
       } else {
-        context.pushNamed(RegistroCWidget.routeName);
+        if (currentUserDisplayName != '') {
+          context.pushNamed(HomeComercioWidget.routeName);
+        } else {
+          context.pushNamed(RegistroCWidget.routeName);
+        }
       }
     });
   }
